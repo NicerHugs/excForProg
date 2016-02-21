@@ -1,12 +1,20 @@
 import React from 'react';
 
+import Exercise from './exercise.js';
+import zeroPad from './../util/zeroPad.js';
+
 export default React.createClass({
   render() {
-    let chapterFn = require(`./../chapters/${this.props.num}.js`).default;
+    let exercises = this.props.exercises.map((exercise, index) => {
+      let exerciseNum = zeroPad(index);
+      return (
+        <Exercise key={index} chapter={this.props.num} exercise="01"/>
+      )
+    });
     return (
-      <p>
-        {chapterFn()}
-      </p>
+      <div>
+        {exercises}
+      </div>
     )
   }
 })

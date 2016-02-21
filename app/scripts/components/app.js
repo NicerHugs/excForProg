@@ -4,24 +4,26 @@ import Accordion from './accordion.js';
 import Chapter from './chapter.js';
 
 const chapters = [
-  '02: Input, Processing, and Output',
-  '03: Calculations',
-  '04: Making Decisions',
-  '05: Functions',
-  '06: Repetition',
-  '07: Data Structures',
-  '08: Working with Files',
-  '09: Working with External Services',
-  '10: Full Programs'
+  {title: '02: Input, Processing, and Output', exercises: [
+    'Saying Hello'
+  ]},
+  {title: '03: Calculations', exercises: []},
+  {title: '04: Making Decisions', exercises: []},
+  {title: '05: Functions', exercises: []},
+  {title: '06: Repetition', exercises: []},
+  {title: '07: Data Structures', exercises: []},
+  {title: '08: Working with Files', exercises: []},
+  {title: '09: Working with External Services', exercises: []},
+  {title: '10: Full Programs', exercises: []},
 ];
 
 export default React.createClass({
   render() {
     let accordions = chapters.map(function(chapter, index) {
-      let chapterNum = chapter.substr(0,2);
+      let chapterNum = chapter.title.substr(0,2);
       return (
-        <Accordion key={index} title={chapter}>
-          <Chapter num={chapterNum}/>
+        <Accordion key={index} title={chapter.title}>
+          <Chapter num={chapterNum} exercises={chapter.exercises}/>
         </Accordion>
       )
     });
