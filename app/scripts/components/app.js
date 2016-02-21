@@ -5,7 +5,8 @@ import Chapter from './chapter.js';
 
 const chapters = [
   {title: '02: Input, Processing, and Output', exercises: [
-    'Saying Hello'
+    '01: Saying Hello',
+    '02: Counting the Number of Characters'
   ]},
   {title: '03: Calculations', exercises: []},
   {title: '04: Making Decisions', exercises: []},

@@ -6,9 +6,9 @@ import zeroPad from './../util/zeroPad.js';
 export default React.createClass({
   render() {
     let exercises = this.props.exercises.map((exercise, index) => {
-      let exerciseNum = zeroPad(index);
+      let exerciseNum = exercise.substr(0,2);
       return (
-        <Exercise key={index} chapter={this.props.num} exercise="01"/>
+        <Exercise key={index} chapter={this.props.num} title={exercise} exercise={exerciseNum}/>
       )
     });
     return (
