@@ -26,15 +26,16 @@ export default React.createClass({
     }
   },
   render() {
-    let message = this.props.response(this.state.userInput);
+    let message = this.props.message;;
     let input;
     if (!this.state.userResponded) {
-      message = this.props.message;
       input =  (<input
         value={this.state.userInput}
         type="text"
         onChange={this.handleUserInput}
         onKeyPress={this.submitInput} />)
+    } else {
+      message = this.props.response(this.state.userInput)
     }
     return (
       <div>
