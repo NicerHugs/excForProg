@@ -1,46 +1,23 @@
 import React from 'react';
-import Prompt from './../../components/prompt.js';
+import MultiPrompt from './../../components/multiPrompt.js';
 
 export default React.createClass({
   getInitialState() {
-    return {
-      quote: ''
-    }
+    return {answer: ''}
   },
-  recieveQuote(string) {
-    if (string) {
-      this.setState({quote: string})
-    }
-    return '';
-  },
-  recieveAuthor(author) {
-    if (author) {
-      return author + ' says, "' + this.state.quote + '"';
-    }
-  },
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.fresh) {
-      this.setState({quote: ''})
-    }
+  quoteAndAuthor(responses) {
+    this.setState({answer: `${responses[1]} says: "${responses[0]}"`});
   },
   render() {
-    let quotePrompt = this.state.quote ? undefined : (
-      <Prompt
-        fresh={this.props.fresh}
-        message="What is the quote?"
-        response={this.recieveQuote}/>
-    );
-    let authorPrompt = this.state.quote ? (
-      <Prompt
-        fresh={this.props.fresh}
-        message="Who said it?"
-        response={this.recieveAuthor}/>
-    ) : undefined;
     return (
-      <div>
-        {quotePrompt}
-        {authorPrompt}
-      </div>
-    );
+      <MultiPrompt
+        fresh={this.props.fresh}
+        messages={[
+          'What is the quote?',
+          'Who said it?'
+        ]}
+        response={this.quoteAndAuthor}
+        responseValue={this.state.answer}/>
+    )
   }
 })

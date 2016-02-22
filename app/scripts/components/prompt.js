@@ -26,21 +26,24 @@ export default React.createClass({
     }
   },
   render() {
-    let message = this.props.message;;
+    let message;
     let input;
+    let responseValue;
     if (!this.state.userResponded) {
       input =  (<input
         value={this.state.userInput}
         type="text"
         onChange={this.handleUserInput}
-        onKeyPress={this.submitInput} />)
+        onKeyPress={this.submitInput} />);
+      message = this.props.message;
     } else {
-      message = this.props.response(this.state.userInput)
+      responseValue = this.props.responseValue;
     }
     return (
       <div>
         {message}
         {input}
+        {responseValue}
       </div>
     )
   }

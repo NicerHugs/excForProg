@@ -2,11 +2,14 @@ import React from 'react';
 import Prompt from './../../components/prompt.js';
 
 export default React.createClass({
+  getInitialState() {
+    return {answer: ''}
+  },
   stringLength(string) {
     if (!string.length) {
-      return 'Please click reset and enter a value';
+      this.setState({answer: 'Please click reset and enter a value'});
     }
-    return `${string} has ${string.length} characters.`;
+    this.setState({answer: `${string} has ${string.length} characters.`});
   },
   render() {
     return (
@@ -14,7 +17,8 @@ export default React.createClass({
         <Prompt
           fresh={this.props.fresh}
           message="What is the input string?"
-          response={this.stringLength}/>
+          response={this.stringLength}
+          responseValue={this.state.answer}/>
       </div>
     )
   }
