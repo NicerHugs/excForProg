@@ -8,7 +8,8 @@ const chapters = [
     '01: Saying Hello',
     '02: Counting the Number of Characters',
     '03: Printing Quotes',
-    '04: Mad Lib'
+    '04: Mad Lib',
+    '05: Simple Math'
   ]},
   {title: '03: Calculations', exercises: []},
   {title: '04: Making Decisions', exercises: []},

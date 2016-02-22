@@ -36,6 +36,7 @@ export default React.createClass({
       responseValue = this.props.responseValue;
     } else {
       prompt = <Prompt
+        validateInput={this.props.validateInput}
         message={this.props.messages[this.state.index]}
         response={this.updatePrompt}
         fresh={true} />

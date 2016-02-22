@@ -4,13 +4,21 @@ export default React.createClass({
   getInitialState() {
     return {
       userResponded: false,
-      userInput: ''
+      userInput: '',
+      errorMsg: ''
     }
   },
   submitInput(e) {
     if (e.which === 13) {
-      this.setState({userResponded: true})
-      this.props.response(this.state.userInput);
+      if (this.props.validateInput && this.props.validateInput(e.target.value)) {
+        this.setState({
+          userResponded: true,
+          errorMsg: ''
+        });
+        this.props.response(this.state.userInput);
+      } else {
+        this.setState({errorMsg: `Sorry, ${this.state.userInput} is not a valid entry`});
+      }
     }
     return;
   },
@@ -29,6 +37,7 @@ export default React.createClass({
     let message;
     let input;
     let responseValue;
+    let errorMsg = this.state.errorMsg ? (<div>{this.state.errorMsg}</div>) : this.state.errorMsg;
     if (!this.state.userResponded) {
       input =  (<input
         value={this.state.userInput}
@@ -41,6 +50,7 @@ export default React.createClass({
     }
     return (
       <div>
+        {errorMsg}
         {message}
         {input}
         {responseValue}
