@@ -1,0 +1,19 @@
+.slideDown-enter {
+  height: 0;
+  overflow: hidden;
+}
+
+.slideDown-enter.slideDown-enter-active {
+  height: 50px;
+  transition: height 300ms ease-in;
+}
+
+.slideDown-leave {
+  height: 50px;
+  overflow: hidden;
+}
+
+.slideDown-leave.slideDown-leave-active {
+  height: 0;
+  transition: height 300ms ease-in;
+}

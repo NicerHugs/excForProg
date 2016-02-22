@@ -14,11 +14,11 @@ export default React.createClass({
   render() {
     let Child = require(`./../chapters/${this.props.chapter}/${this.props.exercise}.js`).default;
     return (
-      <div>
-        <h6>Exercise {this.props.title}</h6>
+      <li>
+        <h6 className="exerciseHeading">Exercise {this.props.title}</h6>
         <input type="button" value="reset" onClick={this.resetExercise} />
         <Child fresh={this.state.resetting}/>
-      </div>
+      </li>
     )
   }
 });

@@ -1,5 +1,14 @@
 @import 'variables';
+@import 'transitions/slideDown';
+@import 'accordion';
+@import 'exercise';
 
 body {
   background: $light-grey;
+}
+
+.chapterList {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }

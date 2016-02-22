@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Exercise from './exercise.js';
-import zeroPad from './../util/zeroPad.js';
+import Accordion from './accordion.js';
 
 export default React.createClass({
   render() {
@@ -12,9 +12,9 @@ export default React.createClass({
       )
     });
     return (
-      <div>
+      <Accordion title={this.props.title}>
         {exercises}
-      </div>
+      </Accordion>
     )
   }
 })
