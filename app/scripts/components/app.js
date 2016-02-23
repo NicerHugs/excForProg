@@ -15,7 +15,11 @@ const chapters = [
       '06: Retirement Calculator'
     ]
   },
-  {title: '03: Calculations', exercises: []},
+  {title: '03: Calculations',
+    exercises: [
+      '07: Area of a Room'
+    ]
+  },
   {title: '04: Making Decisions', exercises: []},
   {title: '05: Functions', exercises: []},
   {title: '06: Repetition', exercises: []},
