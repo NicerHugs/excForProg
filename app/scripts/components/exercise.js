@@ -14,10 +14,10 @@ export default React.createClass({
   render() {
     let Child = require(`./../chapters/${this.props.chapter}/${this.props.exercise}.js`).default;
     return (
-      <li>
-        <h6 className="exerciseHeading">Exercise {this.props.title}</h6>
-        <input type="button" value="reset" onClick={this.resetExercise} />
-        <Child fresh={this.state.resetting}/>
+      <li className="exercise">
+        <h6 className="exercise__heading">Exercise {this.props.title}</h6>
+        <input className="resetBtn" type="button" value="reset" onClick={this.resetExercise} />
+        <Child className="exercise__body" fresh={this.state.resetting}/>
       </li>
     )
   }

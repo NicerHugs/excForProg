@@ -21,7 +21,7 @@ export default React.createClass({
     }
     return (
       <ul className="accordion">
-        <h5 onClick={this.toggleAccordion}>{this.props.title}</h5>
+        <h5 className="accordion__title" onClick={this.toggleAccordion}>{this.props.title}</h5>
         <Transition transitionName="slideDown" transitionEnterTimeout={300} transitionLeaveTimeout={300}>
           {children}
         </Transition>

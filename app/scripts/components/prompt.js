@@ -10,7 +10,7 @@ export default React.createClass({
   },
   submitInput(e) {
     if (e.which === 13) {
-      if (this.props.validateInput && this.props.validateInput(e.target.value)) {
+      if (!this.props.validateInput || this.props.validateInput && this.props.validateInput(e.target.value)) {
         this.setState({
           userResponded: true,
           errorMsg: ''
@@ -37,19 +37,20 @@ export default React.createClass({
     let message;
     let input;
     let responseValue;
-    let errorMsg = this.state.errorMsg ? (<div>{this.state.errorMsg}</div>) : this.state.errorMsg;
+    let errorMsg = this.state.errorMsg ? (<div className="errorMsg">{this.state.errorMsg}</div>) : this.state.errorMsg;
     if (!this.state.userResponded) {
       input =  (<input
+        className="prompt__field"
         value={this.state.userInput}
         type="text"
         onChange={this.handleUserInput}
         onKeyPress={this.submitInput} />);
-      message = this.props.message;
+      message = (<span className="prompt__message">{this.props.message}</span>);
     } else {
-      responseValue = this.props.responseValue;
+      responseValue = (<span className="prompt__response">{this.props.responseValue}</span>);
     }
     return (
-      <div>
+      <div className="prompt">
         {errorMsg}
         {message}
         {input}
