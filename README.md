@@ -1,17 +1,10 @@
-# Basic Webpack Boilerplate
+# Exercises for Programmers
 
-With the following features:
+Working my way through the book. This is an app of my solutions.
 
-* Sass compiled to css in an external stylesheet
-* ES2015
-* An app directory for development and a dist folder for builds
-* Nothing else
+Built with React, Sass, and Webpack
 
-### To use this on a new project
-* Clone the repo!
-* Change the remote!
-* Install the packages with `npm install`!
-* To start the dev server run `webpack-dev-server --progress --colors`
-* To build your assets into the `dist` directory run `webpack`
-* **NEVER TOUCH THE CONTENTS OF THE DIST FOLDER**
-* Build whatever you like in the app folder
+To check it out, clone the repo, run `npm install` and then `webpack-dev-server`
+The site will be live at `localhost:8080`
+
+Enjoy
