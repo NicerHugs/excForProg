@@ -7,31 +7,32 @@ import convertToMetric from './../../util/convertToMetric.js';
 export default React.createClass({
   getInitialState: function() {
     return {
-      answer:''
+      length: 0,
+      width: 0
     };
   },
-  calculateAnswer(responses) {
-    const length = responses[0];
-    const width = responses[1];
-    const area = getArea(length, width);
-    const metricArea = convertToMetric(area);
-    const answer = `
-      You entered dimensions of ${length} feet by ${width} feet.
-      The area is ${area} square feet
-      ${metricArea} square meters`;
-    this.setState({answer})
+  updateLength(e) {
+    this.setState({length: e.target.value});
+  },
+  updateWidth(e) {
+    this.setState({width: e.target.value})
+  },
+  updateArea(e) {
+    const len = Number(e.target.value);
+  },
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.fresh) {
+      this.setState(this.getInitialState());
+    }
   },
   render() {
     return (
-      <MultiPrompt
-        fresh={this.props.fresh}
-        messages={[
-          'What is the length of the room in feet?',
-          'What is the width of the room in feet?'
-        ]}
-        validateInput={Number}
-        response={this.calculateAnswer}
-        responseValue={this.state.answer}/>
+      <form>
+        <div>Length (in feet): <input value={this.state.length} type="text" onChange={this.updateLength} /></div>
+        <div>Width (in feet): <input value={this.state.width} type="text" onChange={this.updateWidth} /></div>
+        <div>Area (in square feet): {getArea(this.state.length || 0, this.state.width || 0)}</div>
+        <div>Area (in square meters: {convertToMetric(getArea(this.state.length || 0, this.state.width || 0))}</div>
+      </form>
     );
   }
 });
