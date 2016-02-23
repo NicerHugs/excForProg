@@ -1,6 +1,8 @@
 import React from 'react';
+import ResetMixin from './../mixins/resetMixin.js';
 
 export default React.createClass({
+  mixins: [ResetMixin],
   getInitialState() {
     return {
       userResponded: false,
@@ -24,14 +26,6 @@ export default React.createClass({
   },
   handleUserInput(e) {
     this.setState({userInput: e.target.value});
-  },
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.fresh===true) {
-      this.setState({
-        userResponded: false,
-        userInput: ''
-      })
-    }
   },
   render() {
     let message;

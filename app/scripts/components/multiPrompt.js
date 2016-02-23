@@ -1,8 +1,10 @@
 import React from 'react';
+import ResetMixin from './../mixins/resetMixin.js';
 
 import Prompt from './prompt.js';
 
 export default React.createClass({
+  mixins: [ResetMixin],
   getInitialState() {
     return {
       userResponded: false,
@@ -18,15 +20,6 @@ export default React.createClass({
     if (this.state.index+1 === this.props.messages.length) {
       this.setState({userResponded: true})
       this.props.response(this.state.userResponses.concat([userInput]));
-    }
-  },
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.fresh===true) {
-      this.setState({
-        userResponded: false,
-        userResponses: [],
-        index: 0
-      })
     }
   },
   render() {

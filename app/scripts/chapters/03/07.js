@@ -1,10 +1,12 @@
 import React from 'react';
 import MultiPrompt from './../../components/multiPrompt.js';
+import ResetMixin from './../../mixins/resetMixin.js';
 
 import getArea from './../../util/getArea.js';
 import convertToMetric from './../../util/convertToMetric.js';
 
 export default React.createClass({
+  mixins: [ResetMixin],
   getInitialState: function() {
     return {
       length: 0,
@@ -19,11 +21,6 @@ export default React.createClass({
   },
   updateArea(e) {
     const len = Number(e.target.value);
-  },
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.fresh) {
-      this.setState(this.getInitialState());
-    }
   },
   render() {
     return (
