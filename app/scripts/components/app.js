@@ -18,7 +18,8 @@ const chapters = [
   {title: '03: Calculations',
     exercises: [
       '07: Area of a Room',
-      '08: Pizza Party'
+      '08: Pizza Party',
+      '09: Paint Calculator'
     ]
   },
   {title: '04: Making Decisions', exercises: []},
